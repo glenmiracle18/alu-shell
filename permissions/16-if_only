@@ -1,7 +1,2 @@
 #!/bin/bash
-file_owner=$(stat -c "%U" hello)
-current_user=$(whoami)
-
-if [ "$file_owner" = "guillaume" ] && [ "$current_user" = "guillaume" ]; then
-    chown vincent hello
-fi
+[ "$(stat -c "%U" hello)" = "guillaume" ] && chown vincent hello
